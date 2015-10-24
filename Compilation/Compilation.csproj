@@ -89,9 +89,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tokenization\Tokenizer.cs" />
+    <Compile Include="Tokenization\Token.cs" />
+    <Compile Include="Tokenization\TokenKind.cs" />
     <Compile Include="Source.cs" />
     <Compile Include="Maybe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ImmutableDictionaryBuilder.cs" />
+    <Compile Include="Utils\ImmutableListBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
