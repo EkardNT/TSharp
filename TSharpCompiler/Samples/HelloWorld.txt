@@ -1,0 +1,9 @@
+﻿namespace HelloWorld;
+
+using System;
+
+[EntryPoint]
+void Main(Environment env)
+{
+
+}

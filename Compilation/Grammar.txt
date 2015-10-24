@@ -1,0 +1,40 @@
+﻿compilation-unit
+	| namespace-declaration using-statements_(opt) code-declarations_(opt) ;
+
+namespace-declaration
+	| 'namespace' IDENTIFIER ';' ;
+
+using-statements
+	| 'using' IDENTIFIER ';' using-statements_(opt) ;
+	| 'using' IDENTIFIER 'as' IDENTIFIER ';' using-statements_(opt) ;
+
+code-declarations
+	| function-declaration code-declarations_(opt) ;
+
+function-declaration
+	| attribute-list_(opt) function-signature '{' '}' ;
+
+attribute-list
+	| '[' scoped-identifier ']' attribute-list_(opt) ;
+
+function-signature
+	| access-specifier_(opt) type-identifier scoped-identifier '(' parameter-list_(opt) ')' ;
+
+parameter-list
+	| parameter parameter-list_(opt) ;
+
+parameter
+	| attribute-list_(opt) type-identifier scoped-identifier ;
+
+type-identifier
+	| scoped-identifier '?'_(opt) ;
+
+scoped-identifier
+	| IDENTIFIER [ '.' scoped-identifier ]_(opt) ;
+
+access-specifier
+	| 'public'
+	| 'private'
+	| 'internal'
+
+IDENTIFIER = [a-zA-z][a-zA-Z0-9]*
