@@ -23,13 +23,19 @@ namespace TSharp.Compilation
 			this.start = start;
 			this.length = length;
 		}
-		
+
 		/// <summary>
 		/// Gets the source code grapheme at the given zero-based index.
 		/// </summary>
 		/// <param name="index">The zero-based index of the grapheme to retrieve.</param>
 		/// <returns>The grapheme at the given index.</returns>
-		public string this[int index] { get { return index >= 0 && index < graphemes.Length ? graphemes[index] : string.Empty; } }
+		public string this[int index]
+		{
+			get
+			{
+				return index >= 0 && index < graphemes.Length ? graphemes[index] : string.Empty;
+			}
+		}
 
 		/// <summary>
 		/// The number of graphemes in the <see cref="SourceCode"/>.
@@ -68,7 +74,7 @@ namespace TSharp.Compilation
 
 			return new SourcePosition(row, col);
 		}
-		
+
 		public static SourceCode FromText(string text)
 		{
 			Contract.Requires(text != null);
@@ -255,12 +261,12 @@ namespace TSharp.Compilation
 			return string.Format("SourceRange(Start={0}, End={1})", Start, End);
 		}
 
-		public static bool operator==(SourceRange lhs, SourceRange rhs)
+		public static bool operator ==(SourceRange lhs, SourceRange rhs)
 		{
 			return lhs.Start == rhs.Start && lhs.End == rhs.End;
 		}
 
-		public static bool operator!=(SourceRange lhs, SourceRange rhs)
+		public static bool operator !=(SourceRange lhs, SourceRange rhs)
 		{
 			return !(lhs == rhs);
 		}
